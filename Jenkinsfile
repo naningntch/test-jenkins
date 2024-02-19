@@ -35,12 +35,12 @@ pipeline {
     }
     stage('Building Image ️') {
       steps {
-        sh 'docker build -t cheiby/jenkins-assingment:lastest .'
+        sh 'docker build -t nattacha/jenkins-assingment:lastest .'
       }
     }
     stage('Push ⬆️') {
       steps {
-        sh 'docker push cheiby/jenkins-assingment:lastest'
+        sh 'docker push nattacha/jenkins-assingment:lastest'
       }
     }
     stage('Clean Workspace') {
