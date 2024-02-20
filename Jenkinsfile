@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git branch: 'main', url: 'https://github.com/softdev-practice-kmitl/Jenkins_Assignment.git'
+        git branch: 'main', url: 'https://github.com/naningntch/test-jenkins.git'
         sh 'whoami'
       }
     }
@@ -27,7 +27,7 @@ pipeline {
         sh 'docker compose -f ./docker-compose.dev.yaml up -d --build'
         echo 'Cloning Robots'
         dir('./robot/') {
-          git branch: 'main', url: 'https://github.com/softdev-practice-kmitl/Jenkins_Robot.git'
+          git branch: 'main', url: 'https://github.com/naningntch/jenkins_Robot.git'
         }
         echo 'Runing Robot'
         sh 'cd ./robot && python3 -m robot ./test-api.robot'
@@ -35,12 +35,12 @@ pipeline {
     }
     stage('Building Image ️') {
       steps {
-        sh 'docker build -t cheiby/jenkins-assingment:lastest .'
+        sh 'docker build -t nattacha/jenkins-assingment:lastest .'
       }
     }
     stage('Push ⬆️') {
       steps {
-        sh 'docker push cheiby/jenkins-assingment:lastest'
+        sh 'docker push nattacha/jenkins-assingment:lastest'
       }
     }
     stage('Clean Workspace') {
