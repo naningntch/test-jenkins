@@ -6,19 +6,12 @@ const plusHandler = (req, res) => {
   res.json(result);
 };
 
-<<<<<<< HEAD
 app.get("/", (req, res) => res.send("Hello World!"));
-app.get("/getcode", (req, res) => res.send("111"));
+app.get("/getcode", (req, res) => res.send("today"));
 app.get("/plus/:num1/:num2", plusHandler);
 const server = app.listen(3001, () =>
   console.log("Example app listening on port 3001!")
 );
-=======
-app.get("/", (req, res) => res.send("Hello World!"))
-app.get("/getcode", (req, res) => res.send("today"))
-app.get("/plus/:num1/:num2",plusHandler)
-const server = app.listen(3001, () => console.log("Example app listening on port 3001!"))
->>>>>>> ccc3cd6ca48b5dbb2a1a0dc97360933a5adc122f
 
 module.exports = {
   plusHandler,
