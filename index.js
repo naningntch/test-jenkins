@@ -6,29 +6,19 @@ const plusHandler = (req, res) => {
   res.json(result);
 };
 
-const is_prime = (req, res) => {
-  const x = parseInt(req.params.x);
-
-  if (isPrimeNumber(x)) {
-    res.json({ result: "true" });
-  } else {
-    res.json({ result: "false" });
-  }
-};
-
-const isPrimeNumber = (n) => {
-  if (n <= 1) {
-    return false;
-  }
-  for (let i = 2; i <= Math.sqrt(n); i++) {
-    if (n % i === 0) {
-      return false;
+const primeNumber = (req, res) => {
+  const num = parseInt(req.params.num);
+  let result = true;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      result = false;
+      break;
     }
   }
-  return true;
+  res.json(result);
 };
 
-app.get("/is_prime/:x", is_prime);
+app.get("/is_prime/:num", primeNumber);
 app.get("/", (req, res) => res.send("Hello World!"));
 app.get("/getcode", (req, res) => res.send("today"));
 app.get("/plus/:num1/:num2", plusHandler);
